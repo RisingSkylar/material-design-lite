@@ -1,7 +1,7 @@
 @keyframes radius-in {
   from {
     transform: scale(0);
-    animation-timing-function: cubic-bezier(0.157, 0.72, 0.386, 0.987);
+    animation-timing-function: cubic-bezier(.157, .72, .386, .987);
   }
 
   to {
@@ -44,7 +44,7 @@
   }
 
   &--bounded-active {
-    transition: transform 300ms cubic-bezier(0.157, 0.72, 0.386, 0.987);
+    transition: transform 300ms cubic-bezier(.157, .72, .386, .987);
   }
 
   &--bounded-circle-active {
@@ -64,7 +64,7 @@
     transition: opacity 600ms linear;
     // In order for the fill class's duration to be taken into account, the target
     // opacity value must be different between the two classes.
-    opacity: 0.99999;
+    opacity: .99999;
   }
 
   &--bounded-active-fill {

@@ -5,7 +5,7 @@
 /**
  * Applied to elements that cover the checkbox's entire inner container.
  */
-%md-checkbox-cover-element {
+@mixin md-checkbox-cover-element {
   position: absolute;
   top: 0;
   right: 0;
@@ -17,8 +17,9 @@
  * Applied to elements that are considered "marks" within the checkbox, e.g. the checkmark and
  * the mixedmark.
  */
-%md-checkbox-mark {
+@mixin md-checkbox-mark {
   width: calc(100% - #{$width-padding-inset});
+
   $width-padding-inset: 2 * $md-checkbox-border-width;
 }
 
@@ -26,10 +27,10 @@
  * Applied to elements that appear to make up the outer box of the checkmark, such as the frame
  * that contains the border and the actual background element that contains the marks.
  */
-%md-checkbox-outer-box {
+@mixin md-checkbox-outer-box {
   border-radius: 2px;
 
-  @extend %md-checkbox-cover-element;
+  @include md-checkbox-cover-element;
   box-sizing: border-box;
   pointer-events: none;
 }
@@ -48,7 +49,7 @@
     margin: auto;
     margin-right: $md-checkbox-item-spacing;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin: {
         right: auto;
         left: $md-checkbox-item-spacing;
@@ -66,7 +67,7 @@
       left: $md-checkbox-item-spacing;
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin: {
         right: $md-checkbox-item-spacing;
         left: auto;
@@ -90,7 +91,7 @@
     border: $md-checkbox-border-width solid $md-checkbox-border-color;
     background-color: transparent;
 
-    @extend %md-checkbox-outer-box;
+    @include md-checkbox-outer-box;
     will-change: border-color;
   }
 
@@ -102,7 +103,7 @@
     background-color: $md-checkbox-background-color;
     opacity: 0;
 
-    @extend %md-checkbox-outer-box;
+    @include md-checkbox-outer-box;
     will-change: background-color, opacity;
   }
 
@@ -121,20 +122,17 @@
   &__checkmark {
     width: 100%;
 
-    @extend %md-checkbox-cover-element;
-    @extend %md-checkbox-mark;
+    @include md-checkbox-cover-element;
+    @include md-checkbox-mark;
     fill: $md-checkbox-mark-color;
 
     &__path {
       // !important is needed here because a stroke must be set as an attribute on the SVG in order
       // for line animation to work properly.
       stroke: $md-checkbox-mark-color !important;
-
-      stroke: {
-        width: $md-checkbox-mark-stroke-size;
-        dashoffset: $_md-checkbox-mark-path-length;
-        dasharray: $_md-checkbox-mark-path-length;
-      }
+      stroke-width: $md-checkbox-mark-stroke-size;
+      stroke-dashoffset: $_md-checkbox-mark-path-length;
+      stroke-dasharray: $_md-checkbox-mark-path-length;
     }
   }
 
@@ -144,7 +142,7 @@
     background-color: $md-checkbox-mark-color;
     opacity: 0;
 
-    @extend %md-checkbox-mark;
+    @include md-checkbox-mark;
   }
 }
 
@@ -269,7 +267,7 @@
     }
 
     .md-checkbox__mixedmark {
-      animation: $indeterminate-change-duration * 0.6 linear 0s md-checkbox-indeterminate-unchecked-mixedmark;
+      animation: $indeterminate-change-duration * .6 linear 0s md-checkbox-indeterminate-unchecked-mixedmark;
     }
   }
 }

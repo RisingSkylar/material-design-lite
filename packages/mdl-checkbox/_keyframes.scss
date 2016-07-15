@@ -36,6 +36,8 @@
   }
 }
 
+// TODO: remove once https://github.com/stylelint/stylelint/pull/1661 is merged and released.
+// stylelint-disable selector-class-pattern
 @keyframes md-checkbox-unchecked-indeterminate-mixedmark {
   0%,
   68.2% {
@@ -50,6 +52,7 @@
     transform: scaleX(1);
   }
 }
+// stylelint-enable selector-class-pattern
 
 @keyframes md-checkbox-checked-unchecked-checkmark-path {
   from {
@@ -116,6 +119,8 @@
   }
 }
 
+// TODO: remove once https://github.com/stylelint/stylelint/pull/1661 is merged and released.
+// stylelint-disable selector-class-pattern
 @keyframes md-checkbox-indeterminate-unchecked-mixedmark {
   0% {
     transform: scaleX(1);
@@ -129,3 +134,4 @@
     opacity: 0;
   }
 }
+// stylelint-enable selector-class-pattern
